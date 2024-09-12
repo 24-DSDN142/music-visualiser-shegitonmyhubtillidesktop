@@ -4,8 +4,6 @@ var Xmove = 25;
 var Xmove2 = 25;
 var Xmove3 = 25;
 
-//let rotaterect = rotate(45)
-
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(0, 251, 255)
@@ -15,18 +13,13 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
   if(imgrun){
     img = loadImage('Unicorn.png')
-
    imgrun = false
   }
 
  let basss = map(bass, 1, 10, 16, 20)
  let others = map(other, 1, 10, 16, 25)
-
- stroke(0)
- strokeWeight(1)
-
-let drumpmap = map(drum, 0, 25, 50, 125)
-  let vocals = map(vocal, 1, 10, 16, 20)
+ let drumpmap = map(drum, 0, 25, 50, 125)
+ let vocals = map(vocal, 1, 10, 16, 20)
   
   stroke(191, 0, 0);//top rainbow top right side
   strokeWeight(9.5);
@@ -79,15 +72,14 @@ let drumpmap = map(drum, 0, 25, 50, 125)
   image(img, 250, 250);// unicorn
 
   fill(255)
-
   strokeWeight(1.5)
   stroke(0)
   line(170, 400, 320, 380)//speech bubble line
-  ellipse(170, 400, 250, 150)//speech bubble
+  ellipse(170, 400, 250, vocals+50)//speech bubble
   strokeWeight(1)
 
   fill(0)
-  text(words, 130, 420, vocal, vocal)
+  text(words, 130, 420, others, others)
   stroke(255, 245, 48)
   fill(255, 245, 48)
   ellipse(535, 0, 150)
@@ -106,7 +98,7 @@ let drumpmap = map(drum, 0, 25, 50, 125)
   fill(drumpmap-100, drumpmap-100, 255)//Blue
   triangle(255, 285, 33, 105, 25, 130)//unicorn ray
 
-fill(255)
+  fill(255)
   stroke(255)//cloud 1 begin
   ellipse(-100+Xmove, 150, 100);
   ellipse(-200+Xmove, 150, 100);
@@ -114,7 +106,6 @@ fill(255)
   rect(-150+Xmove, 150, 100);//cloud 1 end
 
   Xmove = Xmove + 1;
-
   if(Xmove > 800){
   Xmove = 0}
 
@@ -124,7 +115,6 @@ fill(255)
   rect(-1200+Xmove2, 850, 100)//cloud 2 Bottom Right
 
   Xmove2 = Xmove2 + 1;
-
   if(Xmove2 > 2200){
     Xmove2 = 0}
 
@@ -134,10 +124,6 @@ fill(255)
   rect(-700+Xmove3, 685, 100)//cloud 3
 
   Xmove3 = Xmove3 + 1;
-
   if(Xmove3 > 1900){
     Xmove3 = 0}
 }
-
-
- 
